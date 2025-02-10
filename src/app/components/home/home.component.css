@@ -1,0 +1,12 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  padding: 0px 20px;
+}
+
+h1 {
+  font-family: var(--title-font);
+  font-weight: 300;
+  font-size: 2.2em;
+}
