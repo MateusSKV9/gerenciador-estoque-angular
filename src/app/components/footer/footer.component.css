@@ -1,0 +1,15 @@
+:host {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  padding: 8px;
+}
+
+a {
+  font-weight: bold;
+}
+
+a:hover {
+  color: var(--high-light-color);
+  text-decoration: underline;
+}
