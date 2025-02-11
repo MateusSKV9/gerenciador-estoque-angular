@@ -23,11 +23,10 @@ nav ul {
   list-style: none;
   gap: 20px;
   padding-right: 10px;
-  font-size: 1.25em;
+  font-size: 1.22em;
 }
 
 li {
-  padding: 2px;
   position: relative;
 }
 
@@ -50,6 +49,7 @@ li::before {
 li:hover::before {
   width: 50%;
 }
+
 li::after {
   content: "";
   background-color: var(--high-light-color);
