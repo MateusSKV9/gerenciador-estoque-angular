@@ -1,0 +1,119 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  padding: 0px 30px;
+}
+
+h1 {
+  font-family: var(--title-font);
+  font-weight: 300;
+  font-size: 2.25em;
+  margin: 15px 0px 20px;
+}
+
+/*############# NAV #############*/
+
+nav {
+  margin: 5px 0px 25px;
+  border-bottom: 1px solid var(--high-light-color);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  font-size: 1.1em;
+}
+
+nav ul li:first-of-type {
+  color: var(--high-light-color);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--high-light-color);
+}
+
+
+/*############# TABLES #############*/
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0px;
+  border: 1px solid #2c292d;
+  border-radius: 6px;
+  box-shadow: 0px 0px 7px 7px rgba(23, 22, 24, 0.45);
+}
+
+thead {
+  background-color: rgb(44, 41, 45);
+}
+
+th,
+td {
+  text-align: left;
+}
+
+tbody tr:hover {
+  background-color: rgba(40, 37, 42, 0.35);
+}
+
+th {
+  padding: 20px 18px;
+}
+
+thead th:first-of-type {
+  border-radius: 5px 0px 0px 0px;
+}
+
+thead th:last-of-type {
+  border-radius: 0px 5px 0px 0px;
+}
+
+td {
+  padding: 10px 22px;
+  border-bottom: 1px solid #2c292d;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+td a, td button {
+  font-size: 15px;
+  border: none;
+  background-color: var(--text-color);
+  padding: 7px 9px;
+  color: var(--background-primary);
+  border-radius: 5px;
+  margin: 3px 0px;
+  transition: all 0.2s ease;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+td a:hover, td button:hover {
+  cursor: pointer;
+  transform: translateY(3px);
+}
+
+td a:active, td button:active {
+  cursor: pointer;
+  transform: scale(0.985);
+}
+
+td .update {
+  background-color: rgb(96, 207, 255);
+ 
+}
+
+td .delete {
+  background-color: rgb(255, 82, 82);
+}
+
+td.qtd-item::after {
+  content: ' unid.';
+}
