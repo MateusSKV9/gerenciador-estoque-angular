@@ -9,5 +9,16 @@ import { ActivatedRoute, RouterModule, RouterOutlet } from '@angular/router';
   styleUrl: './list-items.component.css',
 })
 export class ListItemsComponent {
+  lineAllItem: boolean = true;
+  lineNewItem: boolean = false;
 
+  addLineAllItem() {
+    this.lineAllItem = true;
+    this.lineNewItem = false;
+  }
+
+  addLineNewItem() {
+    this.lineNewItem = true;
+    this.lineAllItem = false;
+  }
 }
