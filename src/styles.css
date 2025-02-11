@@ -13,16 +13,28 @@ body {
 :root {
   --background-primary: #19191a;
   --background-secundary: #343135;
+  --background-tertiary: #2a272b;
+
+  --box-shadow: rgba(23, 22, 24, 0.45);
+
   --text-color: #ffffff;
-  --border-color: #292929;
+  --border-color: #2c292d;
   --high-light-color: #00FF7F;
+  --background-icon-theme: rgb(93, 94, 93);
 
   --body-font: "Poppins", Arial, Helvetica, sans-serif;
   --title-font: "Roboto", Arial, Helvetica, sans-serif;
 }
 
 .light-theme {
-  --background: #f5f5f5;
+  --background-primary: #fafafa;
+  --background-secundary: #f7f7f7;
+  --background-tertiary: #19191a;
+
+  --box-shadow: rgba(193, 193, 193, 0.108);
+  --high-light-color: #02d76d;
+  --background-icon-theme: rgb(233, 233, 233);
+
   --text-color: #1a1a1a;
   --border-color: #e0e0e0;
 }

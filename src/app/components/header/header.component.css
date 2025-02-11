@@ -18,6 +18,45 @@ h1 {
   font-weight: 500;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.theme {
+  background-color: var(--background-icon-theme);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  transition: all .15s ease;
+}
+
+.theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.theme i {
+  font-size: 1.3em;
+}
+
+.theme #moon {
+  color: #ffffff;
+}
+
+.theme #sun {
+  color: #000000;
+}
+
+.theme i:hover {
+  cursor: pointer;
+}
+
 nav ul {
   display: flex;
   list-style: none;

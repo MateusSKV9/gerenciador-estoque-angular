@@ -26,7 +26,8 @@ h1 {
   flex-grow: 1;
   transition: all 0.2s ease;
   border: 2px solid transparent;
-  box-shadow: 0px 0px 7px 7px rgba(23, 22, 24, 0.45);
+  box-shadow: 0px 0px 7px 7px var(--box-shadow);
+  border: 2px solid var(--border-color);
 }
 
 .card:hover {
@@ -65,13 +66,14 @@ table {
   border-spacing: 0px;
   flex-grow: 1;
   flex-basis: 0;
-  border: 1px solid #2c292d;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  box-shadow: 0px 0px 7px 7px rgba(23, 22, 24, 0.45);
+  box-shadow: 0px 0px 7px 7px var(--box-shadow);
 }
 
 thead {
-  background-color: rgb(44, 41, 45);
+  background-color: var(--background-tertiary);
+  color: white;
 }
 
 th,
@@ -98,7 +100,7 @@ thead th:last-of-type {
 
 td {
   padding: 14px;
-  border-bottom: 1px solid #2c292d;
+  border-bottom: 1px solid var(--border-color);
 }
 
 td a {
