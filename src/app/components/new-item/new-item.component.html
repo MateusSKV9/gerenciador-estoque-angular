@@ -1,30 +1,37 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="container-form-group">
     <div class="form-group">
       <label for="name">Nome</label>
-      <input type="text" name="name" id="name" />
+      <input formControlName="name" type="text" name="name" id="name" placeholder="Digite o nome" />
     </div>
     <div class="form-group">
       <label for="quantity">Quantidade</label>
-      <input type="number" name="quantity" id="quantity" />
+      <input
+        formControlName="quantity"
+        type="number"
+        name="quantity"
+        id="quantity"
+        placeholder="Digite a quantidade"
+      />
     </div>
     <div class="form-group">
       <label for="price">Preço ($)</label>
-      <input type="number" name="price" id="price" />
+      <input formControlName="price" type="number" name="price" id="price" placeholder="Digite o preço" />
     </div>
 
     <div class="form-group">
       <label for="category">Categoria</label>
-      <select name="category" id="category">
-        <option value="">Selecione uma Categoria</option>
-        <option value="livro">Livro</option>
-        <option value="livro">Alimentos</option>
-        <option value="livro">Bebidas</option>
+      <select formControlName="category" name="category" id="category">
+        <option disabled value="">Selecione uma Categoria</option>
+        <option value="livros">Livro</option>
+        <option value="alimentos">Alimentos</option>
+        <option value="bebidas">Bebidas</option>
       </select>
     </div>
   </div>
 
   <textarea
+    formControlName="description"
     name="description"
     id="description"
     placeholder="Descrição"
@@ -34,9 +41,9 @@
     <button class="clear" type="button">
       <span>Limpar</span>
     </button>
-    <button class="add" type="button">
+    <button class="add" type="submit">
       <i class="fa-solid fa-circle-check"></i>
-      <span>Adicionar</span>
+      <span>{{ idItem ? 'Alterar' : 'Adicionar' }}</span>
     </button>
   </div>
 </form>

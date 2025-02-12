@@ -29,149 +29,45 @@
         <th>Opções</th>
       </tr>
     </thead>
+
     <tbody>
+      @for (recentItem of recentsItems; track recentItem.id) {
       <tr>
-        <td>Item</td>
-        <td>Livro</td>
+        <td>{{ recentItem.name }}</td>
+        <td>{{ recentItem.category }}</td>
         <td>
-          <a href="">
+          <a [routerLink]="['/items/', recentItem.id]">
             <i class="fa-solid fa-eye"></i>
             <span>Ver</span>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
+      }
     </tbody>
   </table>
 
   <table>
     <thead>
       <tr>
-        <th>Itens recentes</th>
+        <th>Itens acabando</th>
         <th>Categoria</th>
         <th>Opções</th>
       </tr>
     </thead>
+
     <tbody>
+      @for (lowStockItem of lowStockItems; track lowStockItem.id) {
       <tr>
-        <td>Item</td>
-        <td>Livro</td>
+        <td>{{ lowStockItem.name }}</td>
+        <td>{{ lowStockItem.category }}</td>
         <td>
-          <a href="">
+          <a [routerLink]="['/items/', lowStockItem.id]">
             <i class="fa-solid fa-eye"></i>
             <span>Ver</span>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Item</td>
-        <td>Livro</td>
-        <td>
-          <a href="">
-            <i class="fa-solid fa-eye"></i>
-            <span>Ver</span>
-          </a>
-        </td>
-      </tr>
+      }
     </tbody>
   </table>
 </div>
