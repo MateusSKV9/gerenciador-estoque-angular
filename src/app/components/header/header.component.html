@@ -1,12 +1,12 @@
-<a href="/">
+<a [routerLink]="['/']">
   <h1>Gerenciador de Estoque</h1>
 </a>
 <div class="container">
   <div (click)="onChangeTheme()" class="theme">
     @if (lightTheme === false) {
-      <i id="moon" class="fa-solid fa-moon"></i>
+    <i id="moon" class="fa-solid fa-moon"></i>
     } @else {
-      <i id="sun" class="fa-solid fa-sun"></i>
+    <i id="sun" class="fa-solid fa-sun"></i>
     }
   </div>
   <nav>

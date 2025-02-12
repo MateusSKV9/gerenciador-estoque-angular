@@ -14,16 +14,13 @@
   <tbody>
     @for (item of items; track item.id) {
     <tr>
-      <td>{{ item.id }}</td>
-      <td>{{ item.name }}</td>
-      <td class="qtd-item">{{ item.quantity }}</td>
-      <td class="price-item">{{ item.price.toFixed(2) }}</td>
-      <td>{{ item.category }}</td>
+      <td class="id">{{ item.id }}</td>
+      <td class="name">{{ item.name }}</td>
+      <td class="qtd-item">{{ item.quantity }} unid.</td>
+      <td class="price-item">R$ {{ item.price.toFixed(2) }}</td>
+      <td class="category">{{ item.category }}</td>
       <td class="actions">
-        <a
-          class="view"
-          [routerLink]="['/items/', item.id]"
-        >
+        <a class="view" [routerLink]="['/items/', item.id]">
           <i class="fa-solid fa-eye"></i>
           <span>Ver</span>
         </a>

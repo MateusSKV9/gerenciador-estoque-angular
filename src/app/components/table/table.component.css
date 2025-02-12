@@ -1,6 +1,5 @@
 :host {
   overflow: auto;
-
 }
 
 table {
@@ -46,11 +45,13 @@ td {
 .actions {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
   gap: 5px;
 }
 
 td a,
 td button {
+  flex-grow: 1;
   font-size: 15px;
   border: none;
   background-color: var(--text-color);
@@ -62,6 +63,7 @@ td button {
   width: max-content;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
 }
 
@@ -85,10 +87,48 @@ td .delete {
   background-color: rgb(255, 82, 82);
 }
 
-td.qtd-item::after {
-  content: " unid.";
-}
+@media screen and (max-width: 827px) {
+  tbody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
 
-td.price-item::before {
-  content: 'R$ ';
+  .actions {
+    margin-top: auto;
+  }
+
+  tr:first-of-type {
+    display: none;
+  }
+
+  tr {
+    flex-grow: 1;
+    background-color: var(--background-secundary);
+    display: flex;
+    flex-direction: column;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  td.id::before {
+    content: "ID";
+  }
+  td.name::before {
+    content: "Nome";
+  }
+  td.qtd-item::before {
+    content: "Quantidade";
+  }
+  td.price-item::before {
+    content: "Preço";
+  }
+  td.category::before {
+    content: "Categoria";
+  }
 }

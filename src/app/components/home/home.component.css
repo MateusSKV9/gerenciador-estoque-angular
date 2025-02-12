@@ -124,3 +124,66 @@ td a:hover {
 td a:active {
   transform: scale(0.985);
 }
+
+@media screen and (max-width: 515px) {
+  .container-tables {
+    flex-direction: column;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tbody {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .actions {
+    margin-top: auto;
+  }
+
+  thead tr {
+    background-color: var(--background-tertiary);
+  }
+
+  .th-quantity,
+  .th-category,
+  .th-options {
+    display: none;
+  }
+
+  tr {
+    flex-grow: 1;
+    background-color: var(--background-primary);
+    display: flex;
+    flex-direction: column;
+  }
+
+  td {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--background-tertiary);
+  }
+
+  td a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  td.name::before {
+    content: "Nome";
+  }
+
+  td.qtd-item::before {
+    content: "Quantidade";
+  }
+
+  td.category::before {
+    content: "Categoria";
+  }
+}

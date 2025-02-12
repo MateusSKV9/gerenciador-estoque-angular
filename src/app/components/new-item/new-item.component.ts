@@ -24,7 +24,7 @@ export class NewItemComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.generateId();
-
+    const date = new Date();
     const edit = this.activedRoute.snapshot.data['edit'];
 
     if (edit) {
@@ -39,17 +39,11 @@ export class NewItemComponent implements OnInit {
       price: [this.idItem ? this.item.price : null],
       category: [this.idItem ? this.item.category : ''],
       description: [this.idItem ? this.item.description : ''],
-      createdAt: [this.idItem ? this.item.createdAt : ''],
+      createdAt: [this.idItem ? this.item.createdAt : date],
     });
   }
 
   onSubmit(): void {
-    const date = new Date();
-
-    this.form.get('craetedAt')?.setValue({
-      craetedAt: this.idItem ? this.item.createdAt : date,
-    });
-
     const item = this.form.value as Item;
 
     if (this.idItem) {
