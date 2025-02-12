@@ -28,6 +28,10 @@ nav ul {
 
 li {
   transition: color 0.15s ease;
+  display: flex;
+}
+
+li a {
   padding-bottom: 6px;
 }
 

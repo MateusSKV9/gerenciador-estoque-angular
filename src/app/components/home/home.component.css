@@ -120,3 +120,7 @@ td a {
 td a:hover {
   background-color: var(--high-light-color);
 }
+
+td a:active {
+  transform: scale(0.985);
+}
