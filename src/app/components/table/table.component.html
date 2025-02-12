@@ -1,20 +1,24 @@
+@if (items && items.length > 0) {
 <table>
   <thead>
     <tr>
       <th>ID</th>
       <th>Nome</th>
       <th>Quantidade</th>
+      <th>Preço</th>
       <th>Categoria</th>
       <th>Ações</th>
     </tr>
   </thead>
 
   <tbody>
+    @for (item of items; track item.id) {
     <tr>
-      <td>1</td>
-      <td>Bíblia</td>
-      <td class="qtd-item">12</td>
-      <td>Livros</td>
+      <td>{{ item.id }}</td>
+      <td>{{ item.name }}</td>
+      <td class="qtd-item">{{ item.quantity }}</td>
+      <td class="price-item">{{ item.price.toFixed(2) }}</td>
+      <td>{{ item.category }}</td>
       <td class="actions">
         <a class="view" href="">
           <i class="fa-solid fa-eye"></i>
@@ -24,71 +28,15 @@
           <i class="fa-solid fa-pen-to-square"></i>
           <span>Atualizar</span>
         </a>
-        <button class="delete" type="button">
+        <button (click)="onDeleteItem(item)" class="delete" type="button">
           <i class="fa-solid fa-trash-can"></i>
           <span>Excluir</span>
         </button>
       </td>
     </tr>
-    <tr>
-      <td>1</td>
-      <td>Bíblia</td>
-      <td>12</td>
-      <td>Livros</td>
-      <td class="actions">
-        <a class="view" href="">
-          <i class="fa-solid fa-eye"></i>
-          <span>Ver</span>
-        </a>
-        <a class="update" href="">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <span>Atualizar</span>
-        </a>
-        <button class="delete" type="button">
-          <i class="fa-solid fa-trash"></i>
-          <span>Excluir</span>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Bíblia</td>
-      <td>12</td>
-      <td>Livros</td>
-      <td class="actions">
-        <a class="view" href="">
-          <i class="fa-solid fa-eye"></i>
-          <span>Ver</span>
-        </a>
-        <a class="update" href="">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <span>Atualizar</span>
-        </a>
-        <button class="delete" type="button">
-          <i class="fa-solid fa-trash"></i>
-          <span>Excluir</span>
-        </button>
-      </td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>Bíblia</td>
-      <td>12</td>
-      <td>Livros</td>
-      <td class="actions">
-        <a class="view" href="">
-          <i class="fa-solid fa-eye"></i>
-          <span>Ver</span>
-        </a>
-        <a class="update" href="">
-          <i class="fa-solid fa-pen-to-square"></i>
-          <span>Atualizar</span>
-        </a>
-        <button class="delete" type="button">
-          <i class="fa-solid fa-trash"></i>
-          <span>Excluir</span>
-        </button>
-      </td>
-    </tr>
+    }
   </tbody>
 </table>
+} @else {
+<h1>O estoque está vazio :[</h1>
+}

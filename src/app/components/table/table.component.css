@@ -88,3 +88,7 @@ td .delete {
 td.qtd-item::after {
   content: " unid.";
 }
+
+td.price-item::before {
+  content: 'R$ ';
+}
