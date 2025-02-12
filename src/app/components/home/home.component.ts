@@ -13,12 +13,16 @@ import { RouterModule } from '@angular/router';
 export class HomeComponent implements OnInit {
   recentsItems!: Item[];
   lowStockItems!: Item[];
+  Items!: Item[];
+  itemsQuantity!: number;
 
   constructor(private itemService: ItemService) {}
 
   ngOnInit(): void {
     this.getRecentItems();
     this.getLowStockItems();
+    this.Items = this.itemService.getAll();
+    this.itemsQuantity = this.getQuantityItems();
   }
 
   getRecentItems(): void {
@@ -29,5 +33,14 @@ export class HomeComponent implements OnInit {
     this.lowStockItems = this.itemService
       .getAll()
       .filter((item) => item.quantity <= 10);
+  }
+
+  getQuantityItems(): number {
+    const items = this.itemService.getAll();
+    const quantity = items.reduce((count, item) => {
+      return count + item.quantity;
+    }, 0);
+
+    return quantity;
   }
 }

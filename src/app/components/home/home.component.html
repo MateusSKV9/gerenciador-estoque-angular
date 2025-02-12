@@ -2,19 +2,19 @@
 <div class="container-cards">
   <div class="card">
     <h3>Itens listados</h3>
-    <h1>5</h1>
+    <h1>{{ Items.length }}</h1>
   </div>
   <div class="card">
     <h3>Total em estoque</h3>
-    <h1>5</h1>
+    <h1>{{ itemsQuantity }}</h1>
   </div>
   <div class="card">
     <h3>Itens recentes</h3>
-    <h1>5</h1>
+    <h1>{{ recentsItems.length }}</h1>
   </div>
   <div class="card">
     <h3>Itens acabando</h3>
-    <h1>5</h1>
+    <h1>{{ lowStockItems.length }}</h1>
   </div>
 </div>
 
@@ -25,16 +25,16 @@
     <thead>
       <tr>
         <th>Itens recentes</th>
-        <th>Categoria</th>
-        <th>Opções</th>
+        <th class="th-category">Categoria</th>
+        <th class="th-options">Opções</th>
       </tr>
     </thead>
 
     <tbody>
       @for (recentItem of recentsItems; track recentItem.id) {
       <tr>
-        <td>{{ recentItem.name }}</td>
-        <td>{{ recentItem.category }}</td>
+        <td class="name">{{ recentItem.name }}</td>
+        <td class="category">{{ recentItem.category }}</td>
         <td>
           <a [routerLink]="['/items/', recentItem.id]">
             <i class="fa-solid fa-eye"></i>
@@ -50,16 +50,18 @@
     <thead>
       <tr>
         <th>Itens acabando</th>
-        <th>Categoria</th>
-        <th>Opções</th>
+        <th class="th-quantity">Quantidade</th>
+        <th class="th-category">Categoria</th>
+        <th class="th-options">Opções</th>
       </tr>
     </thead>
 
     <tbody>
       @for (lowStockItem of lowStockItems; track lowStockItem.id) {
       <tr>
-        <td>{{ lowStockItem.name }}</td>
-        <td>{{ lowStockItem.category }}</td>
+        <td class="name">{{ lowStockItem.name }}</td>
+        <td class="qtd-item">{{ lowStockItem.quantity }}</td>
+        <td class="category">{{ lowStockItem.category }}</td>
         <td>
           <a [routerLink]="['/items/', lowStockItem.id]">
             <i class="fa-solid fa-eye"></i>
