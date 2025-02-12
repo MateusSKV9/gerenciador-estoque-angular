@@ -20,11 +20,14 @@
       <td class="price-item">{{ item.price.toFixed(2) }}</td>
       <td>{{ item.category }}</td>
       <td class="actions">
-        <a class="view" href="">
+        <a
+          class="view"
+          [routerLink]="['/items/', item.id]"
+        >
           <i class="fa-solid fa-eye"></i>
           <span>Ver</span>
         </a>
-        <a class="update" href="">
+        <a class="update" [routerLink]="['/items/edit/', item.id]">
           <i class="fa-solid fa-pen-to-square"></i>
           <span>Atualizar</span>
         </a>
