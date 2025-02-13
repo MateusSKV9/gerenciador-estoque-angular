@@ -31,10 +31,12 @@
   <h4>Produto registrado em {{ item.createdAt | date : "short" }}</h4>
 
   <div class="log">
-    @for (log of item.log; track $index) {
+    @for (log of item.history; track $index) {
     <p>{{ log }}</p>
     } @empty {
     <p>Nenhuma mudança registrada</p>
     }
   </div>
+
+  <button (click)="onDeleteLog(item)" type="button">Apagar registro</button>
 </section>

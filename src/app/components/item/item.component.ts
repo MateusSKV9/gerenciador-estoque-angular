@@ -29,4 +29,9 @@ export class ItemComponent implements OnInit {
     this.itemService.deleteItem(item);
     this.route.navigate(['/items']);
   }
+
+  onDeleteLog(item: Item): void {
+    item.history = [];
+    this.itemService.updateItem(item.id, item);
+  }
 }
