@@ -1,10 +1,23 @@
 :host {
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 1000px;
   width: 100%;
+  box-shadow: 0px;
+}
+
+h2:first-of-type {
+  text-align: left;
+  width: 100%;
+  margin: -5px 0px 10px;
+  font-weight: 400;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  background-color: var(--background-tertiary);
 }
 
 form {
@@ -69,10 +82,6 @@ button {
   transition: all 0.15s ease;
 }
 
-.clear:hover {
-  cursor: pointer;
-  transform: translateY(2px);
-}
 
 .add {
   color: var(--background-primary);
@@ -84,12 +93,12 @@ button {
   gap: 2px;
 }
 
-.add:hover {
+.add:hover, .clear:hover {
   cursor: pointer;
-  transform: scale(1.04);
+  transform: scale(1.035);
 }
 
-.add:active {
+.add:active, .clear:active {
   transform: scale(0.99);
 }
 

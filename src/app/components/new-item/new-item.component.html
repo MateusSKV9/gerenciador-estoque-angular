@@ -1,8 +1,12 @@
+@if (idItem) {
+  <h2>Editando informações de {{item.name}}</h2>
+}
+
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="container-form-group">
     <div class="form-group">
       <label for="name">Nome</label>
-      <input formControlName="name" type="text" name="name" id="name" placeholder="Digite o nome" />
+      <input formControlName="name" type="text" name="name" id="name" placeholder="Nome" />
     </div>
     <div class="form-group">
       <label for="quantity">Quantidade</label>
@@ -11,18 +15,18 @@
         type="number"
         name="quantity"
         id="quantity"
-        placeholder="Digite a quantidade"
+        placeholder="Quantidade"
       />
     </div>
     <div class="form-group">
       <label for="price">Preço ($)</label>
-      <input formControlName="price" type="number" name="price" id="price" placeholder="Digite o preço" />
+      <input formControlName="price" type="number" name="price" id="price" placeholder="Preço" />
     </div>
 
     <div class="form-group">
       <label for="category">Categoria</label>
       <select formControlName="category" name="category" id="category">
-        <option disabled value="">Selecione uma Categoria</option>
+        <option disabled selected value="">Selecione uma Categoria</option>
         <option value="livros">Livro</option>
         <option value="alimentos">Alimentos</option>
         <option value="bebidas">Bebidas</option>
@@ -38,7 +42,7 @@
   ></textarea>
 
   <div class="container-buttons">
-    <button class="clear" type="button">
+    <button (click)="onReset()" class="clear" type="button">
       <span>Limpar</span>
     </button>
     <button class="add" type="submit">

@@ -23,7 +23,6 @@ export class NewItemComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let id = this.generateId();
     const date = new Date();
     const edit = this.activedRoute.snapshot.data['edit'];
 
@@ -52,7 +51,12 @@ export class NewItemComponent implements OnInit {
       this.itemService.addItem(item);
     }
 
+    this.onReset();
+  }
+
+  onReset(): void {
     this.form.reset();
+    this.form.patchValue({ category: '' });
   }
 
   generateId(): number {
