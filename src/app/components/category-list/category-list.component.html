@@ -1,0 +1,31 @@
+<h2>Categorias</h2>
+
+<div class="form-group">
+  <label for="new-category">Adicionar categoria:</label>
+  <input
+    [(ngModel)]="category"
+    type="text"
+    name="new-category"
+    id="new-category"
+  />
+  <button class="add" (click)="onAddCategory(category)" type="button">
+    Adicionar categoria
+  </button>
+</div>
+
+<div class="container-cards">
+  @for (category of listCategories; track $index) {
+  <div (click)="selectedCategory(category)" class="card" [class.selected]="category == categorySelected">
+    <h3>Categoria: {{ category }}</h3>
+  </div>
+  }
+</div>
+
+<div>
+  <h2>Itens</h2>
+  @for (item of categoryItems; track item.id) {
+  <p>{{ item.name }}</p>
+  } @empty {
+    <p>Nenhum item dessa catagoria foi cadastrado.</p>
+  }
+</div>

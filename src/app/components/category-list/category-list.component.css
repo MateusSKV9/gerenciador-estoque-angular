@@ -1,0 +1,82 @@
+.form-group {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-basis: 0;
+  margin: 5px 0px 15px;
+}
+
+label {
+  font-size: 1.1em;
+}
+
+input {
+  padding: 1px;
+  border-radius: 5px;
+  border: none;
+  font-size: 0.95em;
+  font-family: var(--body-font);
+}
+
+button {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: all 0.15s ease;
+}
+
+.add {
+  color: var(--background-primary);
+  background-color: var(--high-light-color);
+  font-weight: 600;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.add:hover {
+  cursor: pointer;
+  transform: scale(1.035);
+}
+
+.container-cards {
+  /* max-width: 800px; */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 7px 0px 5px;
+}
+
+.card {
+  background-color: var(--background-secundary);
+  padding: 15px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 7px 7px var(--box-shadow);
+  border: 2px solid var(--border-color);
+  text-align: center;
+  flex: 1 1 1;
+}
+
+.card h3 {
+  font-weight: 400;
+}
+
+.card:hover {
+  cursor: pointer;
+  color: var(--high-light-color);
+  border: 2px solid var(--high-light-color);
+  transform: scale(1.02);
+}
+
+.selected {
+  color: var(--high-light-color);
+  border: 2px solid var(--high-light-color);
+  transform: scale(1.02);
+}

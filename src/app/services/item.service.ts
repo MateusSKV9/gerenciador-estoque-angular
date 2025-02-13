@@ -31,10 +31,9 @@ export class ItemService {
     }
 
     console.log('item adicionado', item);
-    if (!item.name) {
-      items.push(item);
-      this.saveItems(items);
-    }
+
+    items.push(item);
+    this.saveItems(items);
   }
 
   updateItem(id: number, updatedItem: Item): void {
