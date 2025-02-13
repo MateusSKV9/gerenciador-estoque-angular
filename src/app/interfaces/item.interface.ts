@@ -6,5 +6,5 @@ export interface Item {
   category: string;
   description: string;
   createdAt: string;
-  log: string[];
+  history: string[];
 }

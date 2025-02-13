@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Item } from '../interfaces/item.interface';
+import { LogService } from './log.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ItemService {
-  constructor() {}
+  constructor(private logService: LogService) {}
 
   saveItems(items: Item[]): void {
     localStorage.setItem('arrayItems', JSON.stringify(items));
@@ -24,16 +25,64 @@ export class ItemService {
 
   addItem(item: Item): void {
     const items = this.getAll();
-    items.push(item);
-    this.saveItems(items);
+
+    if (!item.history) {
+      item.history = []; // Inicializa um array vazio se for undefined
+    }
+
+    console.log('item adicionado', item);
+    if (!item.name) {
+      items.push(item);
+      this.saveItems(items);
+    }
   }
 
   updateItem(id: number, updatedItem: Item): void {
-    const items = this.getAll();
+    const items: Item[] = this.getAll();
     const index = items.findIndex((i) => i.id === id);
+
+    console.log('Items[index]:', items[index]);
+    console.log('Updated: ', updatedItem);
+
+    if (items[index].name !== updatedItem.name) {
+      this.logService.registerLog(
+        updatedItem,
+        `nome: ${items[index].name} ➡️ ${updatedItem.name}`
+      );
+    }
+
+    if (items[index].quantity !== updatedItem.quantity) {
+      this.logService.registerLog(
+        updatedItem,
+        `quantidade: ${items[index].quantity} ➡️ ${updatedItem.quantity}`
+      );
+    }
+
+    if (items[index].price !== updatedItem.price) {
+      this.logService.registerLog(
+        updatedItem,
+        `preço: ${items[index].price} ➡️ ${updatedItem.price}`
+      );
+    }
+
+    if (items[index].category !== updatedItem.category) {
+      this.logService.registerLog(
+        updatedItem,
+        `categoria: ${items[index].category} ➡️ ${updatedItem.category}`
+      );
+    }
+
+    if (items[index].description !== updatedItem.description) {
+      this.logService.registerLog(
+        updatedItem,
+        `descrição: ${items[index].description} ➡️ ${updatedItem.description}`
+      );
+    }
+
     items[index] = updatedItem;
+    console.log('atualizou', items[index]);
     this.saveItems(items);
-    console.log(updatedItem);
+    console.log(items);
   }
 
   deleteItem(item: Item): void {
