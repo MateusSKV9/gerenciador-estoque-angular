@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Item } from '../../interfaces/item.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-new-item',
@@ -15,14 +16,22 @@ export class NewItemComponent implements OnInit {
   form!: FormGroup;
   idItem!: number;
   item!: Item;
+  listCategory!: string[];
 
   constructor(
     private itemService: ItemService,
     private fb: FormBuilder,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private router: Router,
+    private categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {
+    this.initializeForm();
+    this.listCategory = this.categoryService.getAllCategories();
+  }
+
+  initializeForm(): void {
     const date = new Date();
     const edit = this.activedRoute.snapshot.data['edit'];
 
@@ -39,6 +48,7 @@ export class NewItemComponent implements OnInit {
       category: [this.idItem ? this.item.category : ''],
       description: [this.idItem ? this.item.description : ''],
       createdAt: [this.idItem ? this.item.createdAt : date],
+      history: [this.idItem ? this.item.history : []],
     });
   }
 
@@ -47,10 +57,12 @@ export class NewItemComponent implements OnInit {
 
     if (this.idItem) {
       this.itemService.updateItem(this.idItem, item);
+      this.router.navigate([`/items/${this.item.id}`]);
     } else {
       let id = this.generateId();
       item.id = id;
       this.itemService.addItem(item);
+      this.router.navigate([`/items/`]);
     }
 
     this.onReset();
