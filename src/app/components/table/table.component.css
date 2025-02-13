@@ -1,8 +1,11 @@
 :host {
   overflow: auto;
+  display: flex;
+  justify-content: center;
 }
 
 table {
+  max-width: 1200px;
   width: 100%;
   border-collapse: separate;
   border-spacing: 0px;
