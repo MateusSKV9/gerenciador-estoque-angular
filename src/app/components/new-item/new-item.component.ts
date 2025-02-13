@@ -32,7 +32,7 @@ export class NewItemComponent implements OnInit {
     }
 
     this.form = this.fb.group({
-      id: [this.idItem ? this.item.id : id],
+      id: [this.idItem ? this.item.id : ''],
       name: [this.idItem ? this.item.name : ''],
       quantity: [this.idItem ? this.item.quantity : null],
       price: [this.idItem ? this.item.price : null],
@@ -48,6 +48,8 @@ export class NewItemComponent implements OnInit {
     if (this.idItem) {
       this.itemService.updateItem(this.idItem, item);
     } else {
+      let id = this.generateId();
+      item.id = id;
       this.itemService.addItem(item);
     }
 
