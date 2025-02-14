@@ -30,11 +30,11 @@ h1 {
   border: 2px solid var(--border-color);
 }
 
-.card:hover {
+/* .card:hover {
   color: var(--high-light-color);
   border: 2px solid var(--high-light-color);
   transform: scale(1.02);
-}
+} */
 
 h3 {
   font-weight: 500;
@@ -50,6 +50,18 @@ h3 {
 }
 
 /*############# TABLES #############*/
+
+.title-recent {
+  color: rgb(159, 253, 255);
+  font-size: 1.1em;
+}
+
+.title-low-stock {
+  color: rgb(255, 113, 81);
+  font-size: 1.1em;
+}
+
+
 
 .container-tables {
   margin-top: 25px;
