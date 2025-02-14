@@ -20,26 +20,26 @@ input {
 }
 
 button {
-  padding: 5px;
+  padding: 6px;
   border: none;
   border-radius: 5px;
   font-size: 0.9em;
   transition: all 0.15s ease;
+  font-weight: 500;
 }
 
 .add {
   color: var(--background-primary);
   background-color: var(--high-light-color);
-  font-weight: 600;
   font-size: 1em;
   display: flex;
   align-items: center;
   gap: 2px;
 }
 
-.add:hover {
+button:hover {
   cursor: pointer;
-  transform: scale(1.035);
+  transform: translateY(3px);
 }
 
 .container-cards {
@@ -79,4 +79,11 @@ button {
   color: var(--high-light-color);
   border: 2px solid var(--high-light-color);
   transform: scale(1.02);
+}
+
+.delete {
+  background-color: rgb(255, 82, 82);
+}
+div h2 {
+  margin: 15px 0px 10px;
 }

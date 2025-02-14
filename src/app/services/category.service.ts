@@ -36,4 +36,9 @@ export class CategoryService {
       this.saveCategory(updatedCategories);
     }
   }
+
+  deleteCategory(name: string) {
+    const categories = this.getAllCategories().filter((cat) => cat != name);
+    this.saveCategory(categories);
+  }
 }

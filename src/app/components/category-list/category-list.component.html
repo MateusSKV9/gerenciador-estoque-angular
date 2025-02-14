@@ -11,11 +11,24 @@
   <button class="add" (click)="onAddCategory(category)" type="button">
     Adicionar categoria
   </button>
+  @if (categorySelected) {
+  <button
+    class="delete"
+    (click)="onDeleteCategory(categorySelected)"
+    type="button"
+  >
+    Excluir categoria
+  </button>
+  }
 </div>
 
 <div class="container-cards">
   @for (category of listCategories; track $index) {
-  <div (click)="selectedCategory(category)" class="card" [class.selected]="category == categorySelected">
+  <div
+    (click)="selectedCategory(category)"
+    class="card"
+    [class.selected]="category == categorySelected"
+  >
     <h3>Categoria: {{ category }}</h3>
   </div>
   }
