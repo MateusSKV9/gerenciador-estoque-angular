@@ -13,10 +13,22 @@ export const routes: Routes = [
     component: ListItemsComponent,
     children: [
       { path: '', component: TableComponent },
-      { path: 'category', component: CategoryListComponent },
-      { path: 'new', component: NewItemComponent, data: { edit: false } },
+      {
+        path: 'category',
+        component: CategoryListComponent,
+        data: { category: true },
+      },
+      {
+        path: 'new',
+        component: NewItemComponent,
+        data: { edit: false },
+      },
       { path: ':id', component: ItemComponent },
-      { path: 'edit/:id', component: NewItemComponent, data: { edit: true } },
+      {
+        path: 'edit/:id',
+        component: NewItemComponent,
+        data: { edit: true },
+      },
     ],
   },
 ];

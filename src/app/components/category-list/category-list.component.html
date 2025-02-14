@@ -35,10 +35,10 @@
 </div>
 
 <div>
-  <h2>Itens</h2>
-  @for (item of categoryItems; track item.id) {
-  <p>{{ item.name }}</p>
-  } @empty {
-    <p>Nenhum item dessa catagoria foi cadastrado.</p>
-  }
+  <h2>
+    Itens
+    <span *ngIf="selectedCategory">({{ categoryItems.length }})</span>
+  </h2>
+
+  <app-table [inputItems]="categoryItems"></app-table>
 </div>

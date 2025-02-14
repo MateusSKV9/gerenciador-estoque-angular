@@ -18,7 +18,7 @@ export class CategoryListComponent implements OnInit {
   category: string = '';
   listCategories: string[] = [];
   groupCategories: string[] = [];
-  categoryItems!: Item[];
+  categoryItems: Item[] = [];
   categorySelected!: string;
 
   constructor(
