@@ -99,3 +99,33 @@ button:hover {
 div h2 {
   margin: 15px 0px 10px;
 }
+
+.error {
+  border: 1px solid red;
+  color: red;
+}
+
+.error::placeholder {
+  color: red;
+}
+
+@media screen and (max-width: 573px) {
+  .add {
+    order: 1;
+  }
+  .remove {
+    order: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container-cards {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  button {
+    flex-grow: 1;
+  }
+}
