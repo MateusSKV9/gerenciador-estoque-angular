@@ -101,7 +101,7 @@ td .delete {
     margin-top: auto;
   }
 
-  tr:first-of-type {
+  thead tr:first-of-type {
     display: none;
   }
 
