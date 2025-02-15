@@ -1,59 +1,53 @@
-# GerenciadorEstoqueAngular
+# Gerenciador Estoque
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+<img src="public/images/preview.png" alt="Imagem do projeto"></img>
 
-## Development server
+Este projeto é uma aplicação web desenvolvida em Angular que representa um gerenciador de estoque. Os objetivos principais para a criação desse projeto foram: primeiro, representa um solução para uma necessidade real do cotidiano; segundo, colocar em prática os meus conhecimentos de Angular para o desenvolvimento de um projeto do zero.
 
-To start a local development server, run:
+## 📋 Funcionalidades
+- **Criação de itens:** o usuário pode adicionar novos itens a tabela de itens. O usuário poderá preencher as seguintes informações do item:
+  - Nome
+  - Quantidade
+  - Valor
+  - Categoria
+  - Descrição (opcional)
 
-```bash
-ng serve
-```
+- **Visualização de item:** o usuário pode visualizaro um item, ao clicar no botão "ver". Após isso, o sistema trará uma página com todas as informações do item, bem como o seu registro de alterações.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Edição de Itens:** itens já adicionados podem ser editados para corrigir ou ajustar suas informações.
 
-## Code scaffolding
+- **Exclusão de Itens:** os itens podem ser excluídos, onde, ao clicar em excluir, um pop-up é aberto para o usuário confirmação a exclusão.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Registro de alterações:** cada item possui um registro de alterações, onde ficará registrado toda alteração que for feita.
 
-```bash
-ng generate component component-name
-```
+  - **Exclusão de registro:** o usuário poderá resetar o registro de cada item.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- **Adicionar categoria:** o usuário poderá adicionar uma nova categoria a lista de categorias.
 
-```bash
-ng generate --help
-```
+- **Exclusão de categoria:** o usuário poderá excluir uma categoria da lista de categorias.
 
-## Building
+- **Filtragem de itens por categoria:** o usuário poderá selecionar um categoria específica para que sejam exibidas apenas os itens da categoria em questão.
 
-To build the project run:
+- **Exibição de itens recentes:** na página incial, o sistema exibe os 10 ultimos itens adicionados ao estoque.
 
-```bash
-ng build
-```
+- **Exibição de itens com baixa quantidade:** na página incial, o sistema exibe todos os itens que possuem uma quantidade menor ou igual a 10.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- **Mudança de tema:** o usuário poderá escolher entre o tema escuro e claro. 
 
-## Running unit tests
+## 🛠️ Requisitos Técnicos
+- **Validação de Formulários:** validações básicas garantem que itens não tenham campos inválidos ou incoerentes.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Responsividade:** a aplicação se adapta para funcionar de maneira eficaz em diferentes dispositivos e tamanhos de tela.
 
-```bash
-ng test
-```
+- **Pessistência de dados:** a aplicação está usando o localStorage para armazenar os itens do usuário.
 
-## Running end-to-end tests
+## 🚀 Tecnologias Utilizadas
+ - **Angular:** framework usado para construção da aplicação web.
+ - **HTML/CSS:** Para a estrutura e estilização da interface.
+ - **TypeScript:** Linguagem utilizada para a lógica da aplicação.
 
-For end-to-end (e2e) testing, run:
+## 💻 Como Executar o Projeto
+1. **Acesse o link:** https://gerenciador-estoque-angular.vercel.app/
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 Licença
+Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
