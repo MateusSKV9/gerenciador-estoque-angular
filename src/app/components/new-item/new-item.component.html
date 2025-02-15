@@ -5,34 +5,77 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="container-form-group">
     <div class="form-group">
-      <label for="name">Nome</label>
-      <input
-        formControlName="name"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="Nome"
-      />
+      <div class="form-group-data">
+        <label for="name">Nome</label>
+        <input
+          formControlName="name"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Nome"
+          maxlength="30"
+        />
+      </div>
+
+      <div class="form-group-error">
+        <div
+          *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> Obrigatório</p>
+        </div>
+        <div
+          *ngIf="form.get('name')?.hasError('minlength') && form.get('name')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> No mínimo 2 caracteres</p>
+        </div>
+        <div
+          *ngIf="form.get('name')?.hasError('maxlength') && form.get('name')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> No máximo 30 caracteres</p>
+        </div>
+      </div>
+
     </div>
     <div class="form-group">
-      <label for="quantity">Quantidade</label>
-      <input
-        formControlName="quantity"
-        type="number"
-        name="quantity"
-        id="quantity"
-        placeholder="Quantidade"
-      />
+      <div class="form-group-data">
+        <label for="quantity">Quantidade</label>
+        <input
+          formControlName="quantity"
+          type="number"
+          name="quantity"
+          id="quantity"
+          placeholder="Quantidade"
+        />
+      </div>
+      <div class="form-group-error">
+        <div
+          *ngIf="form.get('quantity')?.hasError('required') && form.get('quantity')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> Obrigatória</p>
+        </div>
+        <div
+          *ngIf="form.get('quantity')?.hasError('min') && form.get('quantity')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> No mínimo 1</p>
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <label for="price">Preço ($)</label>
-      <input
-        formControlName="price"
-        type="number"
-        name="price"
-        id="price"
-        placeholder="Preço"
-      />
+      <div class="form-group-data">
+        <label for="price">Preço ($)</label>
+        <input
+          formControlName="price"
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Preço"
+        />
+      </div>
+      <div class="form-group-error">
+        <div
+          *ngIf="form.get('price')?.hasError('required') && form.get('price')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> Obrigatório</p>
+        </div>
+        <div
+          *ngIf="form.get('price')?.hasError('min') && form.get('price')?.touched" class="error">
+          <p><i class="fa-solid fa-circle-exclamation"></i> No mínimo R$ 0.05</p>
+        </div>
+      </div>
     </div>
 
     <div class="form-group">
@@ -45,6 +88,11 @@
         </option>
         }
       </select>
+
+      <div
+        *ngIf="form.get('category')?.hasError('required') && form.get('category')?.touched" class="error">
+        <p><i class="fa-solid fa-circle-exclamation"></i> Obrigatório</p>
+      </div>
     </div>
   </div>
 

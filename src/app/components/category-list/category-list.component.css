@@ -1,10 +1,12 @@
 .form-group {
   flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 7px;
   flex-basis: 0;
-  margin: 5px 0px 15px;
+  margin: 5px 0px 25px;
+  max-width: 700px;
 }
 
 label {
@@ -12,11 +14,13 @@ label {
 }
 
 input {
-  padding: 1px;
+  padding: 2px 5px;
   border-radius: 5px;
   border: none;
   font-size: 0.95em;
   font-family: var(--body-font);
+  flex-grow: 1;
+  border: 1px solid var(--background-tertiary);
 }
 
 button {
@@ -26,6 +30,7 @@ button {
   font-size: 0.9em;
   transition: all 0.15s ease;
   font-weight: 500;
+  flex-grow: 1;
 }
 
 .add {
@@ -34,7 +39,13 @@ button {
   font-size: 1em;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2px;
+}
+
+.add:disabled {
+  cursor: not-allowed;
+  transform: none;
 }
 
 button:hover {
@@ -43,7 +54,6 @@ button:hover {
 }
 
 .container-cards {
-  /* max-width: 800px; */
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -61,7 +71,9 @@ button:hover {
   box-shadow: 0px 0px 7px 7px var(--box-shadow);
   border: 2px solid var(--border-color);
   text-align: center;
-  flex: 1 1 1;
+  flex-grow: 1;
+  flex-basis: 1;
+  flex-shrink: 0;
 }
 
 .card h3 {

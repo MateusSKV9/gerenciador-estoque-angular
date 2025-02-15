@@ -38,11 +38,22 @@ form {
 }
 
 .form-group {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  gap: 3px;
+  margin-bottom: auto;
+}
+
+.form-group-data {
   display: flex;
   flex-direction: column;
   gap: 3px;
   flex-basis: 0;
+}
+
+.form-group-error {
+  margin-bottom: -10px;
 }
 
 label {
@@ -82,7 +93,6 @@ button {
   transition: all 0.15s ease;
 }
 
-
 .add {
   color: var(--background-primary);
   background-color: var(--high-light-color);
@@ -93,15 +103,25 @@ button {
   gap: 2px;
 }
 
-.add:hover, .clear:hover {
+.add:hover,
+.clear:hover {
   cursor: pointer;
   transform: scale(1.035);
 }
 
-.add:active, .clear:active {
+.add:active,
+.clear:active {
   transform: scale(0.99);
 }
 
 .add i {
   font-size: 1.07em;
+}
+
+.error {
+  color: rgb(255, 96, 96);
+}
+
+.border-error {
+  border: 1px solid rgb(255, 96, 96);
 }

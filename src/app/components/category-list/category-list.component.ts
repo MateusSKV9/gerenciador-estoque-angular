@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../interfaces/item.interface';
 import { CategoryService } from '../../services/category.service';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, Validators } from '@angular/forms';
 import { TableComponent } from '../table/table.component';
 import { CommonModule } from '@angular/common';
 
@@ -20,6 +20,11 @@ export class CategoryListComponent implements OnInit {
   groupCategories: string[] = [];
   categoryItems: Item[] = [];
   categorySelected!: string;
+
+  nameCategory = new FormControl('', [
+    Validators.required,
+    Validators.minLength(2),
+  ]);
 
   constructor(
     private itemService: ItemService,

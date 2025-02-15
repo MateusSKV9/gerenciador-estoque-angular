@@ -76,11 +76,11 @@ button:active {
   font-weight: 400;
 }
 
-.card:hover {
+/* .card:hover {
   color: var(--high-light-color);
   border: 2px solid var(--high-light-color);
   transform: scale(1.02);
-}
+} */
 
 .container-log {
   margin-top: 10px;

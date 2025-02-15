@@ -7,8 +7,9 @@
     type="text"
     name="new-category"
     id="new-category"
+    placeholder="Categoria"
   />
-  <button class="add" (click)="onAddCategory(category)" type="button">
+  <button [disabled]="!category.trim()" class="add" (click)="onAddCategory(category)" type="button">
     Adicionar categoria
   </button>
   @if (categorySelected) {

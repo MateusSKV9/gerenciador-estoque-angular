@@ -1,14 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Item } from '../../interfaces/item.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-new-item',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './new-item.component.html',
   styleUrl: './new-item.component.css',
 })
@@ -42,17 +48,38 @@ export class NewItemComponent implements OnInit {
 
     this.form = this.fb.group({
       id: [this.idItem ? this.item.id : ''],
-      name: [this.idItem ? this.item.name : ''],
-      quantity: [this.idItem ? this.item.quantity : null],
-      price: [this.idItem ? this.item.price : null],
-      category: [this.idItem ? this.item.category : ''],
-      description: [this.idItem ? this.item.description : ''],
+      name: [
+        this.idItem ? this.item.name : '',
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(30),
+        ],
+      ],
+      quantity: [
+        this.idItem ? this.item.quantity : null,
+        [Validators.required, Validators.min(0.05)],
+      ],
+      price: [
+        this.idItem ? this.item.price : null,
+        [Validators.required, Validators.min(0.05)],
+      ],
+      category: [this.idItem ? this.item.category : '', [Validators.required]],
+      description: [
+        this.idItem ? this.item.description : '',
+        [Validators.maxLength(150)],
+      ],
       createdAt: [this.idItem ? this.item.createdAt : date],
       history: [this.idItem ? this.item.history : []],
     });
   }
 
   onSubmit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
     const item = this.form.value as Item;
 
     if (this.idItem) {
@@ -82,4 +109,5 @@ export class NewItemComponent implements OnInit {
     let id: string = n1 + n2 + n3 + n4;
     return Number(id);
   }
+
 }
