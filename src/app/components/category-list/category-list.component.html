@@ -8,19 +8,50 @@
     name="new-category"
     id="new-category"
     placeholder="Categoria"
+    [readOnly]="categoryUpdated"
   />
-  <button [disabled]="!category.trim()" class="add" (click)="onAddCategory(category)" type="button">
-    Adicionar categoria
-  </button>
-  @if (categorySelected) {
-  <button
-    class="delete"
-    (click)="onDeleteCategory(categorySelected)"
-    type="button"
-  >
-    Excluir categoria
-  </button>
-  }
+  <input
+    *ngIf="categorySelected"
+    [(ngModel)]="categoryUpdated"
+    type="text"
+    name="updated-category"
+    id="updated-category"
+    placeholder="Novo nome"
+  />
+  <div class="actions">
+    <button
+      [disabled]="!category.trim()"
+      class="add"
+      (click)="onAddCategory(category)"
+      type="button"
+    >
+      Adicionar categoria
+    </button>
+    @if (categorySelected) {
+    <button
+      class="delete"
+      (click)="onDeleteCategory(categorySelected)"
+      type="button"
+    >
+      Excluir categoria
+    </button>
+    <button
+      class="update"
+      (click)="onUpdateCategory(categoryUpdated)"
+      type="button"
+    >
+      Editar categoria
+    </button>
+    <button
+      class="update"
+      (click)="onCancelUpdate()"
+      type="button"
+    >
+      Cancelar edição
+    </button>
+
+    }
+  </div>
 </div>
 
 <div class="container-cards">

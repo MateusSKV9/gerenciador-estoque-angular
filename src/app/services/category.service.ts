@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ItemService } from './item.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ export class CategoryService {
   categoriesSubject = new BehaviorSubject<string[]>(this.getAllCategories());
   categroes$ = this.categoriesSubject.asObservable();
 
-  constructor() {
+  constructor(private itemService: ItemService) {
     this.initializeCategories();
   }
 
@@ -35,6 +36,23 @@ export class CategoryService {
       const updatedCategories = [...categories, category];
       this.saveCategory(updatedCategories);
     }
+  }
+
+  updateCategory(category: string, updatedCategory: string) {
+    const items = this.itemService.getAll().map((item) => {
+      if (item.category === category) {
+        return { ...item, category: updatedCategory };
+      }
+      return item;
+    });
+
+    const index = this.getAllCategories().findIndex((cat) => cat == category);
+
+    const categories = this.getAllCategories();
+    categories[index] = updatedCategory;
+    this.saveCategory(categories);
+
+    this.itemService.saveItems(items);
   }
 
   deleteCategory(name: string) {

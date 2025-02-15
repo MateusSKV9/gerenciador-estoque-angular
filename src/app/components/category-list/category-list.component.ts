@@ -15,11 +15,13 @@ import { CommonModule } from '@angular/common';
 })
 export class CategoryListComponent implements OnInit {
   catAlimentos!: Item[];
-  category: string = '';
   listCategories: string[] = [];
   groupCategories: string[] = [];
   categoryItems: Item[] = [];
+
+  category: string = '';
   categorySelected!: string;
+  categoryUpdated!: string;
 
   nameCategory = new FormControl('', [
     Validators.required,
@@ -48,10 +50,29 @@ export class CategoryListComponent implements OnInit {
   }
 
   selectedCategory(category: string) {
+    this.category = category;
     this.categorySelected = category;
+    console.log(category);
+    console.log(this.categorySelected);
 
     this.categoryItems = this.itemService
       .getAll()
       .filter((item) => item.category == category);
+  }
+
+  onUpdateCategory(selectedCategory: string) {
+
+    
+
+    const oldCategory = this.category;
+    this.categoryUpdated = selectedCategory;
+
+    this.categoryService.updateCategory(oldCategory, this.categoryUpdated);
+
+    this.selectedCategory(this.categoryUpdated);
+  }
+
+  onCancelUpdate() {
+    
   }
 }
