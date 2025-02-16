@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../interfaces/item.interface';
 import { CategoryService } from '../../services/category.service';
-import { FormControl, FormsModule, Validators } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { TableComponent } from '../table/table.component';
 import { CommonModule } from '@angular/common';
 
@@ -33,14 +33,11 @@ export class CategoryListComponent implements OnInit {
       (response) => (this.listCategories = response)
     );
 
-    console.log('category: ', this.category);
-    console.log('selected: ', this.categorySelected);
-
     this.itemService.emiterItems.subscribe((category) => {
       this.categoryItems = this.itemService
-      .getAll()
-      .filter((item) => item.category == category);
-    })
+        .getAll()
+        .filter((item) => item.category == category);
+    });
   }
 
   onAddCategory(category: string) {
@@ -58,10 +55,7 @@ export class CategoryListComponent implements OnInit {
   }
 
   selectedCategory(category: string) {
-    console.log(category);
-
     this.open = !this.open;
-    console.log(this.open);
 
     if (this.open && this.category == category) {
       this.category = '';
@@ -81,26 +75,19 @@ export class CategoryListComponent implements OnInit {
 
   onEdit() {
     this.confirm = !this.confirm;
-    // console.log(this.confirm);
+
     this.categoryUpdated = this.category;
   }
 
   onUpdateCategory(selectedCategory: string) {
-    // console.log('Update');
     const oldCategory = this.category;
     this.categoryUpdated = selectedCategory;
 
-    // console.log('olDCategory', oldCategory);
-    // console.log(oldCategory);
-    // console.log('Teste');
-    // console.log(this.categoryUpdated);
-    // console.log(this.categoryUpdated);
     this.categoryService.updateCategory(oldCategory, this.categoryUpdated);
 
     this.selectedCategory(this.categoryUpdated);
-    console.log(this.category);
+
     this.confirm = false;
-    // this.category = '';
   }
 
   onCancelUpdate() {
@@ -108,12 +95,10 @@ export class CategoryListComponent implements OnInit {
   }
 
   deleteConfirm(category: string) {
-    // this.item = item;
     this.openModal = true;
   }
 
   deleteCancel() {
     this.openModal = false;
-    // this.item = null;
   }
 }

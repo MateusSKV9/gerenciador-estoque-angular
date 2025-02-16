@@ -89,7 +89,6 @@ export class NewItemComponent implements OnInit {
       let id = this.generateId();
       item.id = id;
       this.itemService.addItem(item);
-      // this.router.navigate([`/items/`]);
     }
 
     this.onReset();
@@ -109,5 +108,4 @@ export class NewItemComponent implements OnInit {
     let id: string = n1 + n2 + n3 + n4;
     return Number(id);
   }
-
 }

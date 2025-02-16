@@ -30,12 +30,6 @@ h1 {
   border: 2px solid var(--border-color);
 }
 
-/* .card:hover {
-  color: var(--high-light-color);
-  border: 2px solid var(--high-light-color);
-  transform: scale(1.02);
-} */
-
 h3 {
   font-weight: 500;
   font-size: 1.2em;
@@ -60,8 +54,6 @@ h3 {
   color: rgb(255, 113, 81);
   font-size: 1.1em;
 }
-
-
 
 .container-tables {
   margin-top: 25px;

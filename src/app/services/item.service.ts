@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { Item } from '../interfaces/item.interface';
 import { LogService } from './log.service';
 
@@ -29,24 +28,18 @@ export class ItemService {
     const items = this.getAll();
 
     if (!item.history) {
-      item.history = []; // Inicializa um array vazio se for undefined
+      item.history = [];
     }
 
     if (!items.find((i) => i.name == item.name)) {
-      alert('no repet');
       items.push(item);
       this.saveItems(items);
     }
-
-    console.log('item adicionado', item);
   }
 
   updateItem(id: number, updatedItem: Item): void {
     const items: Item[] = this.getAll();
     const index = items.findIndex((i) => i.id === id);
-
-    console.log('Items[index]:', items[index]);
-    console.log('Updated: ', updatedItem);
 
     if (items[index].name !== updatedItem.name) {
       this.logService.registerLog(
@@ -84,9 +77,8 @@ export class ItemService {
     }
 
     items[index] = updatedItem;
-    console.log('atualizou', items[index]);
+
     this.saveItems(items);
-    console.log(items);
   }
 
   deleteItem(item: Item): void {

@@ -9,7 +9,6 @@ import {
 import { Item } from '../../interfaces/item.interface';
 import { ItemService } from '../../services/item.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { CategoryListComponent } from '../category-list/category-list.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -61,7 +60,6 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     this.openModal = false;
-
   }
 
   deleteConfirm(item: Item) {
