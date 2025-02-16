@@ -32,10 +32,13 @@ export class ItemService {
       item.history = []; // Inicializa um array vazio se for undefined
     }
 
-    console.log('item adicionado', item);
+    if (!items.find((i) => i.name == item.name)) {
+      alert('no repet');
+      items.push(item);
+      this.saveItems(items);
+    }
 
-    items.push(item);
-    this.saveItems(items);
+    console.log('item adicionado', item);
   }
 
   updateItem(id: number, updatedItem: Item): void {
