@@ -3,15 +3,16 @@
 <div class="form-group">
   <label for="new-category">Adicionar categoria:</label>
   <input
+    *ngIf="!confirm"
     [(ngModel)]="category"
     type="text"
     name="new-category"
     id="new-category"
     placeholder="Categoria"
-    [readOnly]="categoryUpdated"
+    [readOnly]="categorySelected"
   />
   <input
-    *ngIf="categorySelected"
+    *ngIf="confirm"
     [(ngModel)]="categoryUpdated"
     type="text"
     name="updated-category"
@@ -20,6 +21,7 @@
   />
   <div class="actions">
     <button
+      *ngIf="!categorySelected"
       [disabled]="!category.trim()"
       class="add"
       (click)="onAddCategory(category)"
@@ -33,21 +35,21 @@
       (click)="onDeleteCategory(categorySelected)"
       type="button"
     >
+      <i class="fa-solid fa-trash-can"></i>
       Excluir categoria
     </button>
     <button
-      class="update"
+      *ngIf="confirm"
+      class="add"
       (click)="onUpdateCategory(categoryUpdated)"
       type="button"
     >
-      Editar categoria
+      Confirmar edição
     </button>
-    <button
-      class="update"
-      (click)="onCancelUpdate()"
-      type="button"
-    >
-      Cancelar edição
+
+    <button [class.update]="!confirm" (click)="onEdit()" type="button">
+      <i class="fa-solid fa-pen-to-square"></i>
+      {{ confirm ? "Cancelar" : "Editar" }}
     </button>
 
     }

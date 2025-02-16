@@ -50,8 +50,8 @@ export class CategoryService {
 
     const categories = this.getAllCategories();
     categories[index] = updatedCategory;
-    this.saveCategory(categories);
 
+    this.saveCategory(categories);
     this.itemService.saveItems(items);
   }
 
