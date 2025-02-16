@@ -67,6 +67,7 @@ select {
   border: none;
   font-size: 0.95em;
   font-family: var(--body-font);
+  width: 100%;
 }
 
 textarea {
