@@ -1,5 +1,6 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
@@ -24,6 +25,8 @@ export class TableComponent implements OnInit, OnChanges {
   category!: string;
   openModal: boolean = false;
   item!: Item | null;
+
+  emiterItems = new EventEmitter();
 
   constructor(
     private itemService: ItemService,
@@ -58,6 +61,7 @@ export class TableComponent implements OnInit, OnChanges {
     }
 
     this.openModal = false;
+
   }
 
   deleteConfirm(item: Item) {

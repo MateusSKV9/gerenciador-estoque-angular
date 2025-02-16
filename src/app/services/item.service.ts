@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Item } from '../interfaces/item.interface';
 import { LogService } from './log.service';
@@ -7,6 +7,8 @@ import { LogService } from './log.service';
   providedIn: 'root',
 })
 export class ItemService {
+  emiterItems = new EventEmitter();
+
   constructor(private logService: LogService) {}
 
   saveItems(items: Item[]): void {
@@ -88,5 +90,7 @@ export class ItemService {
     let items = this.getAll();
     items = items.filter((i) => i.id != item.id);
     this.saveItems(items);
+
+    this.emiterItems.emit(item.category);
   }
 }

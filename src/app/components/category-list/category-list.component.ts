@@ -35,6 +35,12 @@ export class CategoryListComponent implements OnInit {
 
     console.log('category: ', this.category);
     console.log('selected: ', this.categorySelected);
+
+    this.itemService.emiterItems.subscribe((category) => {
+      this.categoryItems = this.itemService
+      .getAll()
+      .filter((item) => item.category == category);
+    })
   }
 
   onAddCategory(category: string) {
