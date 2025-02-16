@@ -32,7 +32,6 @@ button {
   transition: all 0.15s ease;
   font-weight: 500;
   flex-grow: 1;
-  
 }
 
 .add {
@@ -108,7 +107,6 @@ button:hover {
   background-color: rgb(96, 207, 255);
 }
 
-
 div h2 {
   margin: 15px 0px 10px;
 }
@@ -122,6 +120,31 @@ div h2 {
   color: red;
 }
 
+.delete-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(61, 60, 60, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-content {
+  background-color: black;
+  padding: 10px 20px 20px;
+  border-radius: 7px;
+
+}
+
+.delete-content div {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 input:read-only {
   background-color: rgba(255, 255, 255, 0.8);
 }
@@ -132,6 +155,14 @@ input:read-only {
   }
   .remove {
     order: 0;
+  }
+
+  .card:hover {
+    border: none;
+  }
+
+  .card {
+    border: none;
   }
 }
 

@@ -21,6 +21,7 @@ export class CategoryListComponent implements OnInit {
   categorySelected!: string;
   categoryUpdated!: string;
   open: boolean = true;
+  openModal: boolean = false;
 
   constructor(
     private itemService: ItemService,
@@ -45,6 +46,9 @@ export class CategoryListComponent implements OnInit {
     this.categoryService.deleteCategory(category);
     this.categorySelected = '';
     this.confirm = false;
+    this.category = '';
+    this.categoryItems = [];
+    this.openModal = false;
   }
 
   selectedCategory(category: string) {
@@ -90,10 +94,20 @@ export class CategoryListComponent implements OnInit {
     this.selectedCategory(this.categoryUpdated);
     console.log(this.category);
     this.confirm = false;
-    this.category = '';
+    // this.category = '';
   }
 
   onCancelUpdate() {
     this.confirm = false;
+  }
+
+  deleteConfirm(category: string) {
+    // this.item = item;
+    this.openModal = true;
+  }
+
+  deleteCancel() {
+    this.openModal = false;
+    // this.item = null;
   }
 }

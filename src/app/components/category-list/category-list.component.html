@@ -30,13 +30,9 @@
       Adicionar categoria
     </button>
     @if (categorySelected) {
-    <button
-      class="delete"
-      (click)="onDeleteCategory(categorySelected)"
-      type="button"
-    >
+    <button (click)="deleteConfirm(category)" class="delete" type="button">
       <i class="fa-solid fa-trash-can"></i>
-      Excluir categoria
+      Excluir
     </button>
     <button
       *ngIf="confirm"
@@ -44,6 +40,7 @@
       (click)="onUpdateCategory(categoryUpdated)"
       type="button"
     >
+      <i class="fa-solid fa-circle-check"></i>
       Confirmar edição
     </button>
 
@@ -75,4 +72,20 @@
   </h2>
 
   <app-table [inputItems]="categoryItems"></app-table>
+</div>
+
+<div *ngIf="openModal" class="delete-overlay">
+  <div class="delete-content">
+    <h2>Tem certeza que quer excluir?</h2>
+    <div>
+      <button
+        (click)="onDeleteCategory(category!)"
+        class="delete"
+        type="button"
+      >
+        Excluir
+      </button>
+      <button (click)="deleteCancel()" type="button">Cancelar</button>
+    </div>
+  </div>
 </div>
