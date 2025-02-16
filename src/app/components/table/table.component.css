@@ -90,6 +90,50 @@ td .delete {
   background-color: rgb(255, 82, 82);
 }
 
+.delete-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(61, 60, 60, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-content {
+  background-color: black;
+  padding: 10px 20px 20px;
+  border-radius: 7px;
+}
+
+.delete-content button {
+  background-color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+  transition: all 0.15s ease;
+  font-weight: 500;
+  flex-grow: 1;
+}
+
+.delete-content .delete {
+  background-color: rgb(255, 82, 82);
+}
+
+button:hover {
+  cursor: pointer;
+  transform: translateY(3px);
+}
+
+.delete-content div {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 827px) {
   tbody {
     display: flex;

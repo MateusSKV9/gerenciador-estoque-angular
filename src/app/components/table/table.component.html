@@ -28,7 +28,7 @@
           <i class="fa-solid fa-pen-to-square"></i>
           <span>Atualizar</span>
         </a>
-        <button (click)="onDeleteItem(item)" class="delete" type="button">
+        <button (click)="deleteConfirm(item)" class="delete" type="button">
           <i class="fa-solid fa-trash-can"></i>
           <span>Excluir</span>
         </button>
@@ -38,7 +38,19 @@
   </tbody>
 </table>
 } @else { @if (inputItems) {
-<h3>Nenhum item foi encontrado (;-;)</h3>
+<h3>Nenhum item foi encontrado</h3>
 } @else {
 <h1>O estoque está vazio :[</h1>
 } }
+
+<div *ngIf="openModal" class="delete-overlay">
+  <div class="delete-content">
+    <h2>Tem certeza que quer excluir?</h2>
+    <div>
+      <button (click)="onDeleteItem(item!)" class="delete" type="button">
+        Excluir
+      </button>
+      <button (click)="deleteCancel()" type="button">Cancelar</button>
+    </div>
+  </div>
+</div>

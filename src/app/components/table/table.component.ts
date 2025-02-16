@@ -9,17 +9,21 @@ import { Item } from '../../interfaces/item.interface';
 import { ItemService } from '../../services/item.service';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CategoryListComponent } from '../category-list/category-list.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
 export class TableComponent implements OnInit, OnChanges {
   @Input() inputItems!: Item[];
   items?: Item[];
+  category!: string;
+  openModal: boolean = false;
+  item!: Item | null;
 
   constructor(
     private itemService: ItemService,
@@ -27,9 +31,9 @@ export class TableComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
-    const category = this.activedRoute.snapshot.data['category'];
+    this.category = this.activedRoute.snapshot.data['category'];
 
-    if (category) {
+    if (this.category) {
       this.items = this.inputItems;
     } else {
       this.items = this.itemService.getAll();
@@ -44,6 +48,25 @@ export class TableComponent implements OnInit, OnChanges {
 
   onDeleteItem(item: Item): void {
     this.itemService.deleteItem(item);
-    this.items = this.itemService.getAll().filter((i) => i != item);
+
+    if (!this.category) {
+      this.items = this.itemService.getAll().filter((i) => i != item);
+    } else {
+      this.items = this.itemService
+        .getAll()
+        .filter((i) => i.category == item.category);
+    }
+
+    this.openModal = false;
+  }
+
+  deleteConfirm(item: Item) {
+    this.item = item;
+    this.openModal = true;
+  }
+
+  deleteCancel() {
+    this.openModal = false;
+    this.item = null;
   }
 }
