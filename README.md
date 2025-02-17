@@ -20,6 +20,8 @@ Este projeto é uma aplicação web desenvolvida em Angular que representa um ge
 
 - **Registro de alterações:** cada item possui um registro de alterações, onde ficará registrado toda alteração que for feita.
 
+- **Reset de Registro de alterações:** o registro de cada item pode ser reiniciado.
+
   - **Exclusão de registro:** o usuário poderá resetar o registro de cada item.
 
 - **Adicionar categoria:** o usuário poderá adicionar uma nova categoria a lista de categorias.
@@ -39,7 +41,7 @@ Este projeto é uma aplicação web desenvolvida em Angular que representa um ge
 
 - **Responsividade:** a aplicação se adapta para funcionar de maneira eficaz em diferentes dispositivos e tamanhos de tela.
 
-- **Pessistência de dados:** a aplicação está usando o localStorage para armazenar os itens do usuário.
+- **Persistência de dados:** a aplicação está usando o localStorage para armazenar os itens do usuário.
 
 ## 🚀 Tecnologias Utilizadas
  - **Angular:** framework usado para construção da aplicação web.
